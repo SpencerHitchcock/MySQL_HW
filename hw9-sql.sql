@@ -29,15 +29,14 @@ GROUP BY last_name;
 SELECT last_name, COUNT(*) name_count 
 FROM actor 
 GROUP BY last_name HAVING name_count > 1;
-#4c - Safe mode?
-#UPDATE actor
-#SET first_name='HARPO'
-#WHERE first_name='GROUCHO';
-#4d - Safe mode?
-#UPDATE actor
-#SET first_name='GROUCHO'
-#WHERE first_name='HARPO';
-#5a - ?
+#4c
+update actor
+set first_name="HARPO"
+where first_name="GROUCHO" and last_name="WILLIAMS";
+#4d
+select if(first_name="HARPO", "GROUCHO", first_name) "First Name", last_name from actor where first_name="HARPO" and last_name="WILLIAMS";
+#5a
+describe  address;
 #6a
 SELECT first_name, last_name, address
 FROM staff
